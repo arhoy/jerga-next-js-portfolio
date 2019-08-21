@@ -1,13 +1,31 @@
 import React from 'react';
-import { withRouter } from 'next/router';
+import axios from 'axios';
+import Link from 'next/link';
 
-const Portfolio = props => {
+const Portfolio = ({ post }) => {
   return (
     <div>
-      <h1>Portfolio Page</h1>
-      <h2> {props.router.query.id} </h2>
+      <h1>Porfolio</h1>
+      <h2>{post.title}</h2>
+      <p> {post.body} </p>
     </div>
   );
 };
 
-export default withRouter(Portfolio);
+Portfolio.getInitialProps = async context => {
+  const { id } = context.query;
+  let post = {};
+  try {
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    post = res.data;
+
+    return { post: res.data };
+  } catch (error) {
+    console.error('There was an error in portfolio ids', error);
+  }
+  return { post };
+};
+
+export default Portfolio;
