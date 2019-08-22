@@ -1,12 +1,14 @@
 @import './shared/variables';
 @import './shared/fonts';
+@import './shared/utils';
 
-@import './shared/pages/index';
+// @import './shared/pages/index'
+
 html,
 body {
   font-family: 'Montserrat', 'Helvetica';
-  color: $color-primary;
-  font-weight: lighter;
+  color: $color-black;
+  font-weight: normal;
 }
 h1,
 h2,
@@ -14,6 +16,5 @@ h3,
 h4,
 h5,
 h6 {
-  color: $color-primary;
-  font-weight: 100;
+  color: $color-black;
 }

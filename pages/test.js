@@ -3,10 +3,10 @@ import BasicLayout from '../components/layout/BasicLayout';
 
 const Test = ({ testId }) => {
   return (
-    <BasicLayout>
+    <BasePage>
       <h1>TEST</h1>
       <p> Id: {testId}</p>
-    </BasicLayout>
+    </BasePage>
   );
 };
 

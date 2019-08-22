@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import Link from 'next/link';
+import BasicPage from '../components/layout/BasicPage';
 
 const Portfolios = ({ posts }) => {
   return (
-    <div>
+    <BasicPage>
       <h1>Porfolios Page</h1>
       <ul>
         {posts.map(post => (
@@ -15,7 +16,7 @@ const Portfolios = ({ posts }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </BasicPage>
   );
 };
 
