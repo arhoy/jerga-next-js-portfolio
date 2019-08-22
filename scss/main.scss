@@ -1,0 +1,18 @@
+@import './shared/variables';
+@import './shared/fonts';
+
+html,
+body {
+  font-family: 'Montserrat', 'Helvetica';
+  color: $color-primary;
+  font-weight: lighter;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-primary;
+  font-weight: 100;
+}
