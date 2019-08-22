@@ -2,11 +2,13 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
-const BasicLayout = ({ children }) => {
+const BasicLayout = ({ children, className }) => {
   return (
-    <div>
+    <div className="layout-container">
       <Header />
-      <main>{children}</main>
+      <main className={`cover ${className}`}>
+        <div className="wrapper">{children}</div>
+      </main>
       <Footer />
     </div>
   );
