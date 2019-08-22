@@ -1,15 +1,16 @@
 import React from 'react';
 
 import Head from 'next/head';
-import Nav from '../components/nav';
+import BasicLayout from '../components/layout/BasicLayout';
 
 const Index = () => (
   <div>
     <Head>
       <title>Home</title>
     </Head>
-    <Nav />
-    <h1>Welcome to Next JS</h1>
+    <BasicLayout>
+      <h1>Welcome to Next JS</h1>
+    </BasicLayout>
   </div>
 );
 

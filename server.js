@@ -4,9 +4,11 @@ const next = require('next');
 
 const dev = process.env.NODE_ENV !== 'production';
 
+const routes = require('./routes');
+
 const app = next({ dev });
 
-const handle = app.getRequestHandler();
+const handle = routes.getRequestHandler(app);
 
 const PORT = 3000;
 

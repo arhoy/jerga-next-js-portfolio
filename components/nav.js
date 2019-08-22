@@ -1,13 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
+import { Link as NavLink } from '../routes';
 
 const Nav = () => (
   <nav>
@@ -25,6 +18,24 @@ const Nav = () => (
         <Link href="/portfolios">
           <a>Portfolios</a>
         </Link>
+        <Link href="/test">
+          <a>Test</a>
+        </Link>
+      </li>
+      <li>
+        <NavLink route="test" params={{ id: '1' }}>
+          <a> Test 1 </a>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink route="test" params={{ id: '2' }}>
+          <a> Test 2 </a>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink route="test" params={{ id: '3' }}>
+          <a> Test 3 </a>
+        </NavLink>
       </li>
     </ul>
   </nav>

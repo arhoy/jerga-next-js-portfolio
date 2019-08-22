@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Nav from '../components/nav';
 import { withRouter } from 'next/router';
+import BasicLayout from '../components/layout/BasicLayout';
 
 const PostLink = ({ id }) => (
   <li>
@@ -18,12 +18,13 @@ const Blog = () => {
       <Head>
         <title>BLOG</title>
       </Head>
-      <Nav />
-      <h1>Welcome to Next BLOG</h1>
-      <ul>
-        <PostLink id="hello-dude" />
-        <PostLink id="hello-gal" />
-      </ul>
+      <BasicLayout>
+        <h1>Welcome to Next BLOG</h1>
+        <ul>
+          <PostLink id="hello-dude" />
+          <PostLink id="hello-gal" />
+        </ul>
+      </BasicLayout>
     </div>
   );
 };

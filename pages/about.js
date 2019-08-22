@@ -1,12 +1,11 @@
 import React from 'react';
-import Nav from '../components/nav';
+import BasicLayout from '../components/layout/BasicLayout';
 
 const About = () => {
   return (
-    <div>
-      <Nav />
+    <BasicLayout>
       <h1> The about page</h1>
-    </div>
+    </BasicLayout>
   );
 };
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import BasicLayout from '../../components/layout/BasicLayout';
 
 const Portfolio = ({ post }) => {
   return (
-    <div>
+    <BasicLayout>
       <h1>Porfolio</h1>
       <h2>{post.title}</h2>
       <p> {post.body} </p>
-    </div>
+    </BasicLayout>
   );
 };
 
