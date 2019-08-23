@@ -16,6 +16,8 @@ import BsNavLink from '../links/BsNavLink';
 
 import '../../scss/components/header.scss';
 import Link from 'next/link';
+import Login from '../auth/Login';
+import Logout from '../auth/Logout';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -77,7 +79,12 @@ export default class Header extends React.Component {
                     </Link>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Login</DropdownItem>
+                  <DropdownItem>
+                    <Login />
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Logout />
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
