@@ -18,13 +18,16 @@ class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     // calls page's `getInitialProps` and fills `appProps.pageProps`
     let pageProps = {};
-    const isAuthenticated = process.browser
+    const user = process.browser
       ? auth0.clientAuth()
       : auth0.serverAuth(ctx.req);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
+
+    let isAuthenticated = false;
+    if (user) isAuthenticated = true;
 
     return { pageProps, isAuthenticated };
   }
