@@ -16,6 +16,7 @@ import BsNavLink from '../links/BsNavLink';
 
 import '../../scss/components/header.scss';
 import Link from 'next/link';
+import auth0 from '../../services/auth0';
 import Login from '../auth/Login';
 import Logout from '../auth/Logout';
 
@@ -34,6 +35,7 @@ export default class Header extends React.Component {
     });
   }
   render() {
+    console.log('my app', auth0.isAuthenticated());
     return (
       <div>
         <Navbar

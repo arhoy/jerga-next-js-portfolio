@@ -40,8 +40,8 @@ class Auth0 {
     localStorage.setItem('expires_at', expiresAt);
     // set Cookie to store user info for login and custom pages
     Cookies.set('user', authResult.idTokenPayload);
-    Cookies.set('jwt', authResult.idTokenPayload);
-    Cookies.set('expiresAt', authResult.idTokenPayload);
+    Cookies.set('jwt', authResult.idToken);
+    Cookies.set('expiresAt', expiresAt);
   }
   login() {
     this.auth0.authorize();
@@ -61,6 +61,7 @@ class Auth0 {
 
   isAuthenticated() {
     const expiresAt = Cookies.getJSON('expiresAt');
+    console.log('expires at: ', expiresAt);
     return new Date().getTime() < expiresAt;
   }
 }
