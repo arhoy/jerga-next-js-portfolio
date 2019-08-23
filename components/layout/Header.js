@@ -16,7 +16,6 @@ import BsNavLink from '../links/BsNavLink';
 
 import '../../scss/components/header.scss';
 import Link from 'next/link';
-import auth0 from '../../services/auth0';
 import Login from '../auth/Login';
 import Logout from '../auth/Logout';
 
@@ -35,7 +34,7 @@ export default class Header extends React.Component {
     });
   }
   render() {
-    console.log('my app', auth0.isAuthenticated());
+    console.log('Thesare are the header frpors', this.props);
     return (
       <div>
         <Navbar
@@ -70,25 +69,33 @@ export default class Header extends React.Component {
               </NavItem>
               <UncontrolledDropdown className='port-navbar-link' nav inNavbar>
                 <DropdownToggle className='port-navbar-link' nav caret>
-                  Porfolio
+                  Explore
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>CraveJs</DropdownItem>
-                  <DropdownItem>Dash-Intel</DropdownItem>
+                  <DropdownItem>
+                    <Link href='/blog'>
+                      <a className='Header__link'> Blog </a>
+                    </Link>
+                  </DropdownItem>
                   <DropdownItem>
                     <Link href='/portfolios'>
-                      <a> Portfolio </a>
+                      <a className='Header__Link'> Portfolio </a>
                     </Link>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
-                    <Login />
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Logout />
-                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem className='port-navbar-item'>
+                {this.props.isAuth ? (
+                  <div>
+                    <Logout />
+                  </div>
+                ) : (
+                  <div>
+                    <Login />
+                  </div>
+                )}
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
