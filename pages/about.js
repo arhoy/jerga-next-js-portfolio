@@ -3,7 +3,6 @@ import Head from 'next/head';
 import BasicPage from '../components/layout/BasicPage';
 
 const About = ({ auth: { user, isAuthenticated } }) => {
-  console.log(user);
   return (
     <div>
       <Head>

@@ -1,19 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 import BasicPage from '../components/layout/BasicPage';
+import withAuth from '../components/hoc/withAuth';
 
-const Secret = ({ auth: { user, isAuthenticated } }) => {
-  console.log(user, isAuthenticated);
-  return (
-    <div>
-      <Head>
-        <title>Secret Page</title>
-      </Head>
-      <BasicPage>
-        <h1>I am an Secret Page</h1>
-      </BasicPage>
-    </div>
-  );
-};
+class Secret extends React.Component {
+  render() {
+    console.log(this.props.secret);
+    return <BasicPage>I am a secret page</BasicPage>;
+  }
+}
 
-export default Secret;
+export default withAuth(Secret);

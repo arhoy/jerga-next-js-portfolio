@@ -82,6 +82,11 @@ export default class Header extends React.Component {
                       <a className='Header__Link'> Portfolio </a>
                     </Link>
                   </DropdownItem>
+                  <DropdownItem>
+                    <Link href='/secret'>
+                      <a className='Header__Link'> Secret </a>
+                    </Link>
+                  </DropdownItem>
                   <DropdownItem divider />
                 </DropdownMenu>
               </UncontrolledDropdown>

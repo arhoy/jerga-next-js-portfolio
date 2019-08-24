@@ -42,7 +42,7 @@ class MyApp extends App {
     return (
       <NextContainer>
         <BasicLayout auth={auth}>
-          <Component {...pageProps} auth={auth} />;
+          <Component {...pageProps} auth={auth} />
         </BasicLayout>
       </NextContainer>
     );
