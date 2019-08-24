@@ -1,7 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
-import BasicLayout from '../components/layout/BasicLayout';
 import { Button, Container, Col, Row } from 'reactstrap';
 import Typed from 'react-typed';
 
@@ -17,7 +15,7 @@ const typedValues = [
   'Web Developer'
 ];
 
-const Index = () => {
+const Index = ({ auth: { user, isAuthenticated } }) => {
   return (
     <div>
       <Head>
@@ -52,9 +50,22 @@ const Index = () => {
             <Col md='6' className='hero-welcome-wrapper'>
               <div className='hero-welcome-text'>
                 <h1>
-                  Welcome to the portfolio website of Filip Jerga. Get informed,
-                  collaborate and discover projects I was working on through the
-                  years!
+                  {isAuthenticated && user.name ? (
+                    <div>
+                      Welcome{' '}
+                      <span className='hero-bold'>
+                        {user.given_name || user.name}!{' '}
+                      </span>
+                      Take a look a the new projects I have been working on, by
+                      signing up, you get VIP access.
+                    </div>
+                  ) : (
+                    <div>
+                      Welcome to the portfolio website of Alex Quasar Get
+                      informed, collaborate and discover projects I was working
+                      on through the years! Please sign up to get full access.
+                    </div>
+                  )}
                 </h1>
               </div>
 

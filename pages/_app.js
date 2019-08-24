@@ -19,28 +19,30 @@ class MyApp extends App {
     // calls page's `getInitialProps` and fills `appProps.pageProps`
     let pageProps = {};
     const user = process.browser
-      ? auth0.clientAuth()
-      : auth0.serverAuth(ctx.req);
+      ? await auth0.clientAuth()
+      : await auth0.serverAuth(ctx.req);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
     let isAuthenticated = false;
-    if (user) isAuthenticated = true;
-
-    return { pageProps, isAuthenticated };
+    if (user) {
+      isAuthenticated = true;
+    }
+    const auth = { user, isAuthenticated };
+    return { pageProps, auth };
   }
 
   render() {
     // pass page Props into component ? what is page props
     // pass isAuthenticated into base Layout to pass into header
 
-    const { Component, pageProps, isAuthenticated } = this.props;
+    const { Component, pageProps, auth } = this.props;
     return (
       <NextContainer>
-        <BasicLayout isAuth={isAuthenticated}>
-          <Component {...pageProps} />;
+        <BasicLayout auth={auth}>
+          <Component {...pageProps} auth={auth} />;
         </BasicLayout>
       </NextContainer>
     );
