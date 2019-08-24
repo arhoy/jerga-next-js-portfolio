@@ -54,7 +54,6 @@ class Auth0 {
       'https://dev-jbd8z86v.auth0.com/.well-known/jwks.json'
     );
     const jwks = res.data;
-    console.log('jwks is', jwks);
     return jwks;
   }
 
@@ -102,6 +101,7 @@ class Auth0 {
       if (!decodedToken) {
         return undefined;
       }
+
       const jwks = await this.getJWKS();
       const jwk = jwks.keys[0];
 

@@ -35,7 +35,6 @@ export default class Header extends React.Component {
   }
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    console.log('Thesare are the header frpors', this.props);
     return (
       <div>
         <Navbar

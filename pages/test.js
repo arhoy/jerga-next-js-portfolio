@@ -1,12 +1,12 @@
 import React from 'react';
-import BasicLayout from '../components/layout/BasicLayout';
+import BasicPage from '../components/layout/BasicPage';
 
 const Test = ({ testId }) => {
   return (
-    <BasePage>
+    <BasicPage>
       <h1>TEST</h1>
       <p> Id: {testId}</p>
-    </BasePage>
+    </BasicPage>
   );
 };
 

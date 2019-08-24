@@ -12,7 +12,8 @@ const PostLink = ({ id }) => (
   </li>
 );
 
-const Blog = () => {
+const Blog = ({ auth: { user, isAuthenticated } }) => {
+  console.log('user is', user);
   return (
     <div>
       <Head>

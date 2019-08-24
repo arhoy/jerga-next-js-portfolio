@@ -2,18 +2,18 @@ import React from 'react';
 import Head from 'next/head';
 import BasicPage from '../components/layout/BasicPage';
 
-const About = ({ auth: { user, isAuthenticated } }) => {
-  console.log(user);
+const Secret = ({ auth: { user, isAuthenticated } }) => {
+  console.log(user, isAuthenticated);
   return (
     <div>
       <Head>
-        <title>About Page</title>
+        <title>Secret Page</title>
       </Head>
       <BasicPage>
-        <h1>I am an Alien</h1>
+        <h1>I am an Secret Page</h1>
       </BasicPage>
     </div>
   );
 };
 
-export default About;
+export default Secret;

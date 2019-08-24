@@ -16,6 +16,7 @@ const typedValues = [
 ];
 
 const Index = ({ auth: { user, isAuthenticated } }) => {
+  console.log(user);
   return (
     <div>
       <Head>
