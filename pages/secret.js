@@ -8,10 +8,16 @@ const Secret = ({ auth: { user }, secret }) => {
   const [newSecret, setNewSecret] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
+      let secretData = [];
       try {
-      } catch (error) {}
-      const res = await axios.get('/api/v1/secret');
-      const secretData = res.data.msg;
+        const res = await axios.get('/api/v1/secret');
+        secretData = res.data.msg;
+      } catch (error) {
+        console.error('There as an error', error);
+        secretData = [
+          { title: 'Error', description: 'Please try again later' }
+        ];
+      }
       setNewSecret(secretData);
     };
 
@@ -25,18 +31,16 @@ const Secret = ({ auth: { user }, secret }) => {
         <p>
           The super secret value is <b> {secret}</b>
         </p>
-        <p>
-          My new secret message is:
-          <ul>
-            {newSecret &&
-              newSecret.length > 0 &&
-              newSecret.map((secret, i) => (
-                <li key={i}>
-                  {secret.title} => {secret.description}{' '}
-                </li>
-              ))}
-          </ul>
-        </p>
+        My new super secret messages are:
+        <ul>
+          {newSecret &&
+            newSecret.length > 0 &&
+            newSecret.map((secret, i) => (
+              <li key={i}>
+                {secret.title}: <b>{secret.description}</b>
+              </li>
+            ))}
+        </ul>
       </BasicPage>
     </div>
   );

@@ -12,6 +12,9 @@ const handle = routes.getRequestHandler(app);
 
 const PORT = 3000;
 
+// middleware
+const auth = require('./services/middleware/auth');
+
 const secretData = [
   {
     title: 'Scret data 1',
@@ -25,7 +28,7 @@ app
     const server = express();
 
     // temp requests here
-    server.get('/api/v1/secret', (req, res) => {
+    server.get('/api/v1/secret', auth, (req, res) => {
       return res.json({ msg: secretData });
     });
 
@@ -33,6 +36,13 @@ app
       return handle(req, res);
     });
 
+    server.use(function(err, req, res, next) {
+      if (err.name === 'UnauthorizedError') {
+        res
+          .status(401)
+          .json({ msg: 'Unauthorized, please login or contact admin' });
+      }
+    });
     server.listen(PORT, err => {
       if (err) throw err;
       console.log(`READY ON PORT ${PORT}`);
