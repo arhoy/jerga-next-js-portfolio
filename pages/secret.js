@@ -18,7 +18,7 @@ const Secret = ({ auth: { user }, secret }) => {
 };
 
 Secret.getInitialProps = () => {
-  const secret = 'alex';
+  const secret = 'abc Secret Page';
   return { secret };
 };
 
