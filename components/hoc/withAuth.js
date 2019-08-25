@@ -1,14 +1,28 @@
 import React from 'react';
+import BasicPage from '../layout/BasicPage';
 
 export default function(Component) {
   return class withAuth extends React.Component {
-    alertMessage() {
-      alert('Some mesdsg');
+    static async getInitialProps(args) {
+      const pageProps =
+        (await Component.getInitialProps) && Component.getInitialProps(args);
+
+      return { ...pageProps };
+    }
+    renderProtectedPage() {
+      const { isAuthenticated } = this.props.auth;
+      if (isAuthenticated) {
+        return <Component {...this.props} />;
+      } else {
+        return (
+          <BasicPage {...this.props.auth}>
+            <h1>You are not authenticated, please Login to access this page</h1>
+          </BasicPage>
+        );
+      }
     }
     render() {
-      const mySecret = '12345';
-
-      return <Component secret={mySecret} alertMessage={this.alertMessage} />;
+      return this.renderProtectedPage();
     }
   };
 }

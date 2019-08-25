@@ -15,4 +15,9 @@ const About = ({ auth: { user, isAuthenticated } }) => {
   );
 };
 
+About.getInitialProps = () => {
+  const secret = 'abcAbout';
+  console.log(secret);
+};
+
 export default About;
